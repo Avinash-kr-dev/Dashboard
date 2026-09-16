@@ -1,0 +1,161 @@
+:root {
+    --background: #292630;
+    --surface: #fff3e7;
+    --text: #332a32;
+    --muted-text: #82737b;
+
+    --navy: #443344;
+    --teal: #7e9f8a;
+    --coral: #c87562;
+    --yellow: #d5a253;
+    --blue: #9a7b8c;
+}
+
+*{
+        margin: 0;
+        padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 0.75rem;
+
+    align-items: center;
+    list-style: none;
+    padding: 0.75rem;
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    background-color: var(--navy);
+    color: var(--surface);
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+}
+
+.nav-li {
+    background-color: var(--surface);
+    color: var(--text);
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+}
+
+.nav-container > li {
+    min-width: 0;
+}
+
+.nav-container a {
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+}
+
+.nav-container a:hover {
+    color: var(--teal);
+}
+
+.middle-nav,
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    list-style: none;
+}
+
+.middle-nav {
+    justify-content: center;
+    /* background: #000; */
+}
+
+.right-nav {
+    justify-content: flex-end;
+}
+
+.right-nav img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.widget-container{
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(160px, 1fr));
+    grid-template-areas:
+        "clock clock clock clock pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro"
+        "todo todo todo todo todo todo weather weather weather password password password"
+        "todo todo todo todo todo todo weather weather weather currency currency currency";
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.widget-div{
+    min-width: 0;
+    min-height: 0;
+    border: 2px solid var(--coral);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--surface);
+    border-color: var(--blue);
+}
+
+.clock-container {
+    grid-area: clock;
+    border-color: var(--teal);
+}
+
+.pomodoro-container {
+    grid-area: pomodoro;
+    border-color: var(--coral);
+}
+
+.todo-container {
+    grid-area: todo;
+    border-color: var(--yellow);
+}
+
+.weather-container {
+    grid-area: weather;
+    border-color: var(--teal);
+}
+
+.password-container {
+    grid-area: password;
+    border-color: var(--blue);
+}
+
+.currency-container {
+    grid-area: currency;
+    border-color: var(--coral);
+}
+
+@media (max-width: 800px) {
+    .widget-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        grid-template-areas:
+            "clock clock"
+            "pomodoro pomodoro"
+            "todo todo"
+            "weather password"
+            "currency currency";
+    }
+}

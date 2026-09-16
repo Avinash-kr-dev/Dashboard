@@ -4,41 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav id="nav-bar" class="nav-container">
-      <ul id="nav-content" class="">
-        <li id="project-options">Project Name</li>
-        <li>
-          <ul>
-            <li>Projects</li>
-            <li>Portfolio</li>
+    <nav id="nav-bar">
+      <ul id="nav-content" class="nav-container">
+        <li id="project-options" class="nav-li">Widget Dashboard</li>
+        <li class="nav-li">
+          <ul id="middle-nav" class="middle-nav">
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Portfolio</a></li>
           </ul>
         </li>
-        <li>
-          <ul>
+        <li class="nav-li">
+          <ul id="right-nav" class="right-nav">
+            
             <li>
-              <a href="https://github.com/Avinash-kr-dev"> <img src="./contents/icons8-github-50.gif" alt="" /><a href="">Github</a> </a>
+              <a href="https://leetcode.com/u/avinash-kr-dev/">
+                <img src="./contents/icons8-leetcode-24.png" alt="" />
+              </a>
             </li>
             <li>
-                <a href="https://leetcode.com/u/avinash-kr-dev/">
-                    <img src="./contents/icons8-leetcode-24.png" alt="">
-                    <a href="">LeetCode</a>
-                </a>
+              <a href="https://github.com/Avinash-kr-dev">
+                <img src="./contents/icons8-github-50.gif" alt=""
+              /></a>
             </li>
           </ul>
         </li>
       </ul>
     </nav>
 
-<main>
-    <div id="clock" class="clock-container"></div>
-    <div id="pomodoro" class="pomodoro-container"></div>
-    <div id="todo" class="todo-container"></div>
-    <div id="weather" class="weather-container"></div>
-    <div id="password-generator" class="password-container"></div>
-    <div id="currency-converter" class="currency-container"></div>
-</main>
-
+    <main id="widget-container" class="widget-container">
+      <section id="clock" class="clock-container widget-div"></section>
+      <section id="pomodoro" class="pomodoro-container widget-div"></section>
+      <section id="todo" class="todo-container widget-div"></section>
+      <section id="weather" class="weather-container widget-div"></section>
+      <section id="password-generator" class="password-container widget-div"></section>
+      <section id="currency-converter" class="currency-container widget-div"></section>
+    </main>
   </body>
 </html>
