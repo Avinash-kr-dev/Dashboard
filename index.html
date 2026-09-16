@@ -18,7 +18,6 @@
         </li>
         <li class="nav-li">
           <ul id="right-nav" class="right-nav">
-            
             <li>
               <a href="https://leetcode.com/u/avinash-kr-dev/">
                 <img src="./contents/icons8-leetcode-24.png" alt="" />
@@ -35,12 +34,107 @@
     </nav>
 
     <main id="widget-container" class="widget-container">
-      <section id="clock" class="clock-container widget-div"></section>
-      <section id="pomodoro" class="pomodoro-container widget-div"></section>
-      <section id="todo" class="todo-container widget-div"></section>
-      <section id="weather" class="weather-container widget-div"></section>
-      <section id="password-generator" class="password-container widget-div"></section>
-      <section id="currency-converter" class="currency-container widget-div"></section>
+      <!-- Clock -->
+      <section id="clock" class="clock-container widget-div">
+        <h2>Clock</h2>
+        <div id="clock-1" class="clock-div">
+          <label for="timeCity-name">City</label>
+          <div class="clock-controls">
+            <input
+              type="text"
+              placeholder="Enter city name"
+              id="timeCity-name"
+              class="timeCity-name"
+            />
+            <button type="button" id="show-time-button">Show Time</button>
+          </div>
+          <div id="time-display" class="time-display" aria-live="polite">
+            12:40:55
+          </div>
+        </div>
+      </section>
+
+      <!-- Pomodoro -->
+      <section id="pomodoro" class="pomodoro-container widget-div">
+        <h2>Pomodoro</h2>
+        <div class="pomodoro-settings">
+          <label for="pomodoro-minutes">Duration</label>
+          <div class="pomodoro-duration">
+            <input
+              type="number"
+              id="pomodoro-minutes"
+              name="pomodoro-minutes"
+              min="1"
+              max="999"
+              value="25"
+              aria-label="Pomodoro duration in minutes"
+            />
+            <span>minutes</span>
+            <button type="button" id="pomodoro-start">Start</button>
+          </div>
+        </div>
+        <div
+          class="pomodoro-display"
+          id="pomodoro-display"
+          aria-live="polite"
+        >
+          25:00
+        </div>
+        <div class="pomodoro-controls">
+          <button type="button" id="pomodoro-stop">Stop</button>
+          <button type="button" id="pomodoro-reset">Reset</button>
+        </div>
+      </section>
+
+      <!-- ToDo-List -->
+      <section id="todo" class="todo-container widget-div">
+        <h2>Todo-list</h2>
+        <div class="todo-entry">
+          <label for="todo-input">New task</label>
+          <div class="todo-controls">
+            <input type="text" id="todo-input" placeholder="Add a task" />
+            <button type="button" id="todo-add">Add</button>
+          </div>
+        </div>
+        <div class="todo-list" id="todo-list" aria-live="polite">
+          <p class="empty-state">Your tasks will appear here.</p>
+        </div>
+      </section>
+
+      <!-- Weather-App -->
+      <section id="weather" class="weather-container widget-div">
+        <h2>Weather</h2>
+        <div class="weather-search">
+          <label for="weather-city">City</label>
+          <div class="weather-controls">
+            <input type="text" id="weather-city" placeholder="Enter a city" />
+            <button type="button" id="weather-search-button">Search</button>
+          </div>
+        </div>
+        <div class="weather-result" id="weather-result" aria-live="polite">
+          <strong>Weather updates</strong>
+          <span>Search for a city to see conditions.</span>
+        </div>
+      </section>
+
+      <!-- Password-Generator -->
+      <section id="password-generator" class="password-container widget-div">
+        <h2>Password Generator</h2>
+        <div class="password-result" id="password-result" aria-live="polite">
+          Your password will appear here.
+        </div>
+        <button type="button" id="password-generate">Generate Password</button>
+      </section>
+
+      <!-- Quote-Generator -->
+      <section id="quote-generator" class="quote-container widget-div">
+        <h2>Quote Generator</h2>
+        <div class="quote-result" id="quote-result" aria-live="polite">
+          <blockquote>“A thoughtful quote will appear here.”</blockquote>
+          <cite id="quote-author">Unknown author</cite>
+        </div>
+        <button type="button" id="quote-generate">Generate Quote</button>
+      </section>
     </main>
   </body>
 </html>

@@ -1,14 +1,14 @@
 :root {
-    --background: #292630;
-    --surface: #fff3e7;
-    --text: #332a32;
-    --muted-text: #82737b;
+    --background: #151722;
+    --surface: #242838;
+    --text: #f2e9dd;
+    --muted-text: #aaa0a0;
 
-    --navy: #443344;
-    --teal: #7e9f8a;
-    --coral: #c87562;
-    --yellow: #d5a253;
-    --blue: #9a7b8c;
+    --navy: #292d49;
+    --teal: #78a99f;
+    --coral: #c47769;
+    --yellow: #c6a15e;
+    --blue: #8293ad;
 }
 
 *{
@@ -30,7 +30,7 @@ body {
 
 .nav-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
     gap: 0.75rem;
 
     align-items: center;
@@ -102,7 +102,7 @@ body {
     grid-template-areas:
         "clock clock clock clock pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro pomodoro"
         "todo todo todo todo todo todo weather weather weather password password password"
-        "todo todo todo todo todo todo weather weather weather currency currency currency";
+        "todo todo todo todo todo todo weather weather weather quote quote quote";
     gap: 1rem;
     padding: 1rem;
 }
@@ -116,36 +116,355 @@ body {
     background-color: var(--surface);
     border-color: var(--blue);
 }
+h2{
+    text-align: center;
+    color: var(--text);
+}
+
+
+/* *********** CLOCK *************** */
 
 .clock-container {
     grid-area: clock;
     border-color: var(--teal);
+    background-color: var(--surface);
+    display: flex;
+    flex-direction: column;
 }
+
+.clock-div{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    background-color: var(--surface);
+}
+
+.clock-div label {
+    font-weight: 700;
+}
+
+.clock-controls {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.timeCity-name,
+.clock-controls button {
+    min-width: 0;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    font: inherit;
+}
+
+.timeCity-name {
+    flex: 1;
+    color: var(--text);
+    background-color: var(--surface);
+}
+
+.clock-controls button {
+    cursor: pointer;
+    color: var(--surface);
+    background-color: var(--navy);
+    font-weight: 700;
+}
+
+.clock-controls button:hover {
+    background-color: var(--coral);
+}
+
+.time-display {
+    min-height: 2.5rem;
+    display: grid;
+    place-items: center;
+    padding: 0.6rem;
+    border-radius: 6px;
+    color: var(--text);
+    background-color: #30364b;
+    text-align: center;
+    font-weight: bolder;
+    color: var(--yellow);
+}
+
+/* **************************************************** */
+
+/* ************ Pomodoro ************* */
 
 .pomodoro-container {
     grid-area: pomodoro;
     border-color: var(--coral);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
+
+.pomodoro-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--muted-text);
+    font-weight: 700;
+}
+
+.pomodoro-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.pomodoro-duration input {
+    width: 4.5rem;
+    box-sizing: border-box;
+    padding: 0.55rem;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    color: var(--text);
+    background-color: var(--surface);
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+}
+
+.pomodoro-duration button {
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--coral);
+    border-radius: 6px;
+    color: var(--surface);
+    background-color: var(--navy);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pomodoro-duration button:hover {
+    background-color: var(--coral);
+}
+
+.pomodoro-display {
+    flex: 1;
+    min-height: 4rem;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border: 1px solid var(--coral);
+    border-radius: 8px;
+    background-color: #30364b;
+    color: var(--yellow);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.pomodoro-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.pomodoro-controls button {
+    padding: 0.8rem 0.5rem;
+    border: 1px solid var(--coral);
+    border-radius: 6px;
+    color: var(--text);
+    background-color: var(--surface);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pomodoro-controls button:hover {
+    color: var(--surface);
+    background-color: var(--coral);
+}
+
+/* ******************************************************** */
+
+/* ************ Shared widget controls ************* */
+
+.widget-div input,
+.widget-div select,
+.widget-div button {
+    box-sizing: border-box;
+    min-width: 0;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 0.65rem 0.75rem;
+    color: var(--text);
+    background-color: var(--surface);
+    font: inherit;
+}
+
+.widget-div button {
+    border-color: var(--coral);
+    background-color: var(--navy);
+    color: var(--surface);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.widget-div button:hover {
+    background-color: var(--coral);
+}
+
+.widget-div label {
+    color: var(--muted-text);
+    font-weight: 700;
+}
+
+/* ************ Todo ************* */
+
+.todo-entry,
+.weather-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.todo-controls,
+.weather-controls {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.todo-controls input,
+.weather-controls input {
+    flex: 1;
+}
+
+.todo-list {
+    flex: 1;
+    min-height: 5rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    background-color: #30364b;
+}
+
+.empty-state {
+    color: var(--muted-text);
+    text-align: center;
+}
+
+/* To-Do List */
 
 .todo-container {
     grid-area: todo;
     border-color: var(--yellow);
 }
 
+/* **************************************************** */
+
+/*  */
+
 .weather-container {
     grid-area: weather;
     border-color: var(--teal);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
+
+.weather-result,
+.password-result,
+.currency-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    flex: 1;
+    min-height: 5rem;
+    padding: 0.9rem;
+    border-radius: 8px;
+    background-color: #30364b;
+    color: var(--text);
+    text-align: center;
+}
+
+.weather-result strong {
+    color: var(--teal);
+}
+
+/* ************ Password ************* */
+
+/* ************************************************************ */
+
+/*  */
 
 .password-container {
     grid-area: password;
     border-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-.currency-container {
-    grid-area: currency;
-    border-color: var(--coral);
+.password-container button {
+    width: 100%;
 }
+
+.password-result {
+    border: 1px dashed var(--blue);
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+/* ************ Currency ************* */
+
+/* ***************************************************** */
+
+/*  */
+
+.quote-container {
+    grid-area: quote;
+    border-color: var(--coral);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.quote-result {
+    display: flex;
+    flex: 1;
+    min-height: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--coral);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #30364b;
+    text-align: center;
+}
+
+.quote-result blockquote {
+    color: var(--yellow);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.quote-result cite {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+}
+
+.quote-container button {
+    width: 100%;
+}
+
+/* ************************************************************ */
 
 @media (max-width: 800px) {
     .widget-container {
@@ -156,6 +475,10 @@ body {
             "pomodoro pomodoro"
             "todo todo"
             "weather password"
-            "currency currency";
+            "quote quote";
     }
+}
+
+.hidden{
+    display: none;
 }
