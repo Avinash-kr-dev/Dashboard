@@ -37,19 +37,19 @@
       <!-- Clock -->
       <section id="clock" class="clock-container widget-div">
         <h2>Clock</h2>
-        <div id="clock-1" class="clock-div">
-          <label for="timeCity-name">City</label>
+        <div id="clock-item" class="clock-div">
+          <label for="clock-city-input">City</label>
           <div class="clock-controls">
             <input
               type="text"
               placeholder="Enter city name"
-              id="timeCity-name"
+              id="clock-city-input"
               class="timeCity-name"
             />
             <button type="button" id="show-time-button">Show Time</button>
           </div>
-          <div id="time-display" class="time-display" aria-live="polite">
-            12:40:55
+          <div id="time-display" class="time-display hidden" aria-live="polite">
+           
           </div>
         </div>
       </section>
@@ -137,4 +137,11 @@
       </section>
     </main>
   </body>
+
+  <script src="./src/clock.js"></script>
+  <script src="./src/pomodoro.js"></script>
+  <script src="./src/todo.js"></script>
+  <script src="./src/weather.js"></script>
+  <script src="./src/password.js"></script>
+  <script src="./src/quotes.js"></script>
 </html>
